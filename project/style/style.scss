@@ -1,0 +1,21 @@
+.products {
+    overflow: hidden;
+    margin-top: 40px;
+};
+    
+
+.product-item {
+  float: left;
+  margin-right: 20px;
+};
+
+.imgBlock {
+  width: 200px;
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

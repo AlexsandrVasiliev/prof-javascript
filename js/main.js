@@ -1,4 +1,5 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -8,15 +9,11 @@ const app = new Vue({
         cartUrl: '/getBasket.json',
         cartItems: [],
         filtered: [],
-        imgCart: 'https://via.placeholder.com/50x100',
+        imgCart: 'https://placehold.it/50x100',
         products: [],
-        imgProduct: 'https://via.placeholder.com/200x150'
+        imgProduct: 'https://placehold.it/200x150'
     },
     methods: {
-        filter(){
-         const regexp = new RegExp(this.userSearch, 'i');
-         this.filtered = this.products.filter(product => regexp.test(product.product_name));
-        },
         getJson(url){
             return fetch(url)
                 .then(result => result.json())
@@ -30,7 +27,7 @@ const app = new Vue({
                        if(find){
                            find.quantity++;
                        } else {
-                           const prod = Object.assign({quantity: 1}, item);//создание нового объекта на основе двух, указанных в параметрах
+                           const prod = Object.assign({quantity: 1}, item);
                            this.cartItems.push(prod)
                        }
                     }
@@ -47,13 +44,17 @@ const app = new Vue({
                         }
                     }
                 })
+        },
+        filter(userSearch){
+            let regexp = new RegExp(userSearch, 'i');
+            this.filtered = this.products.filter(el => regexp.test(el.product_name));
         }
     },
     mounted(){
         this.getJson(`${API + this.cartUrl}`)
             .then(data => {
                 for (let item of data.contents){
-                    this.cartItems.push(item);
+                    this.$data.cartItems.push(item);
                 }
             });
         this.getJson(`${API + this.catalogUrl}`)
@@ -66,10 +67,10 @@ const app = new Vue({
         this.getJson(`getProducts.json`)
             .then(data => {
                 for(let item of data){
-                    this.products.push(item);
-                    this.filtered.push(item);
+                    this.$data.products.push(item);
+                    this.$data.filtered.push(item);
                 }
             })
-            
     }
-})
+
+});

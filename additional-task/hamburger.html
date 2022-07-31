@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Бургерная</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Заказ бургера</div>
+    </header>
+    <main>
+        <div class="burger">
+            <div class="size">
+                <p>Select burger size:</p>
+                <input type="radio" name="size" value="small" checked="true">
+                <label for="html">Small</label><br>
+                <input type="radio" name="size" value="big">
+                <label for="html">Big</label><br>
+            </div>
+            <div class="filling">
+                <p>Select burger filling:</p>
+                <input type="radio" name="filling" value="cheese" checked="true">
+                <label for="html">Cheese</label><br>
+                <input type="radio" name="filling" value="salad">
+                <label for="html">Salad</label><br>
+                <input type="radio" name="filling" value="potato">
+                <label for="html">Potato</label><br>
+            </div>
+            <div class="addition">
+                <p>Additional Additives:</p>
+                <input type="checkbox" name="dressing" value="dressing">
+                <label for="vehicle1"> Add dressing</label><br>
+                <input type="checkbox" name="mayonnaise" value="mayonnaise">
+                <label for="vehicle1"> Add mayonnaise</label><br>
+            </div>
+            <p class="count_result"></p>
+            <button class="button" type="button">Сount</button>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
